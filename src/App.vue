@@ -1,11 +1,17 @@
-<script setup></script>
+<script>
+import Home from './home_page.vue'
+export default{
+  components: 
+  {
+    Home
+  }
+}
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <Home />
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
