@@ -64,14 +64,14 @@ export default
 
   <section>
     <h2>Leave a comment</h2>
-    <form action="./handler_form.js" method="POST">
-      <label title="etiqueta_email">Email</label>  <input type="email" class="input_field" required></input> <br></br>
-      <label title="etiqueta_comentario" >Comentario</label>  <input type="text" class="input_field" id="comentario" required></input> <br>
-      <input type="submit"></input>
+    <form action="./handler_form.js" method="POST" id="form_container">
+      <label title="etiqueta_email" class="item">Email</label>  <input type="email" class="input_field item" required></input> 
+      <label title="etiqueta_comentario" class="item">Comentario</label>  <input type="text" class="input_field item" id="comentario" required></input> 
+      <input type="submit" class="item"></input>
     </form>
   </section>
 
-  <section>
+  <section id="shading_section">
     <h2>Contact</h2>
     <p>1578636g@umich.mx</p>
   </section>
@@ -114,6 +114,8 @@ export default
 {
   font-size: large;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: solid 1px black;
+  text-align: center;
 }
 
 h1, h2{
@@ -130,15 +132,38 @@ h1, h2{
   font-size:small;
 }
 
-#comentario
-{
-  border: 5px outset ;
-}
 
 section, p, h1, figure
 {
-  width:500px; /**Esto evita que los  */;
+  width:800px; /**Esto evita que los  */;
   margin:auto;
 }
 
+#shading_section
+{
+  background-color: red;
+  margin-top: 200px;
+  padding: 50px;
+  text-align: center;
+  vertical-align:middle;
+  /*Margin es separación entre elementos, transparente, color del componente contenedor (padre) 
+  Padding es separación del contenido respecto al borde del elemento*/
+}
+
+#form_container
+{
+  display:flex;
+  width: 600px;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: baseline;
+  align-content:space-evenly ;
+  height:150px;
+  row-gap: 20px;
+}
+
+.item
+{
+    flex-basis: 40%;
+}
 </style>
