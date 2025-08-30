@@ -64,7 +64,7 @@ export default
 
   <section>
     <h2>Leave a comment</h2>
-    <form action="./handler_form.js" method="POST" id="form_container">
+    <form action="./handler_form.js" method="POST" class="form_container">
       <label title="etiqueta_email" class="item">Email</label>  <input type="email" class="input_field item" required></input> 
       <label title="etiqueta_comentario" class="item">Comentario</label>  <input type="text" class="input_field item" id="comentario" required></input> 
       <input type="submit" class="item"></input>
@@ -78,12 +78,18 @@ export default
 
   <section>
     <h2>Social Networks</h2>
-    <nav>
-      <a href="#">Samuel Martinez, facebook profile<br></a>
-      <a href="#">Sam_mtz, Instagram profile<br></a>
-      <a href="#">Samuel Nezvi, Spotify profile<br></br></a>
+    <nav class="container">
+      <a class="item2" href="#">Samuel Martinez, facebook profile</a>
+      <a class="item2" href="#">Sam_mtz, Instagram profile</a>
+      <a class="item2" href="#">Samuel Nezvi, Spotify profile</a>
     </nav>
+
+    <div class="container-relative">
+      <div class="element3"></div>
+    </div>
   </section>
+
+
 
 </template>
 
@@ -93,8 +99,8 @@ export default
 
 #my_photo
 {
-  height:380px;
-  width: 250px;
+  height:280;
+  width: 150px;
   margin-top: 50px;
   margin-bottom: 2px;
   margin-left: 10px;
@@ -105,7 +111,7 @@ export default
 {
   /*background-color:beige;*/
   background-image:url("https://imgs.search.brave.com/g-gY05LeRPq2u6Hp8nS8z9PCctcGRNly_VGYrZXr8Pg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ibG9n/Z2VyLmdvb2dsZXVz/ZXJjb250ZW50LmNv/bS9pbWcvYi9SMjl2/WjJ4bC9BVnZYc0Vp/YUpfd09NVmp3X0oy/VF9NSmNRUHZaaEp3/R3JtcU42NDh2SFJT/SUdONGg1YllLdk1R/WC1kLTkweGpSRmdl/VDY2S253X1I1cDdo/VUhlZW4xbzg3bDFa/U25YX0JlcXpHZWJf/MUMxem1NcXJkQlZO/LUtlUzUtOUhpb2hy/dEYyNkNRVHZfWEpp/SURfZWEwencvczYw/MC1ydy9JbSVDMyVB/MWdlbmVzK0NsaXBh/cnQrZGUrQm9iK0Vz/cG9uamErUE5HK0Rl/c2NhcmdhK2dyYXRp/cyslMjgxMCUyOS5w/bmc") ;
-  border:3px solid black;
+  border:3px dotted black;
   width:100px;
   height: 50px;
 }
@@ -135,7 +141,7 @@ h1, h2{
 
 section, p, h1, figure
 {
-  width:800px; /**Esto evita que los  */;
+  width:50vw; /*50 % del ancho del lienzo */
   margin:auto;
 }
 
@@ -150,20 +156,81 @@ section, p, h1, figure
   Padding es separación del contenido respecto al borde del elemento*/
 }
 
-#form_container
+.form_container
 {
   display:flex;
-  width: 600px;
+  width: 50vw;
+  height: 20vh;
   flex-flow: row wrap;
   justify-content: space-evenly;
-  align-items: baseline;
+  align-items:end;
   align-content:space-evenly ;
-  height:150px;
   row-gap: 20px;
+  margin-bottom:10vh;
 }
 
 .item
 {
-    flex-basis: 40%;
+  flex-basis: 40%;
+}
+
+/*La navbar donde los enlaces se alinean en filas para entornos de escritorio
+y para móviles en columnas*/
+
+.container{
+  display: flex;
+  flex-flow:column wrap;
+  justify-content: space-evenly;
+  align-items:flex-start;
+  align-content: space-evenly;
+  background-color: burlywood;
+  height: 5vh;
+  width: 70vw;
+}
+.item2
+{
+  font-size: 12px;
+  flex-basis: 40%;
+}
+
+@media  (max-width:600px)
+{
+  .container{
+    /*Solo se sobreescriben los atributos que cambiarán */
+  flex-flow:row wrap;
+  align-items: baseline;
+  background-color: transparent;
+  }
+
+  .item2
+  {
+    flex-basis: 90%;
+  }
+  
+  /*Ocultar la sección de contacto, muy ancha para los dispositivos*/
+  #shading_section
+  {
+    display:none;
+  }
+}
+
+
+.container-relative
+{
+  margin:1em /*em = 16px */;
+  font-size: 32px;
+  /*Contenedor padre de 64x64px, em = 32px */
+  width: 2em;
+  height: 2em;
+  background-color: aliceblue;
+}
+
+
+.element3
+{
+  /* Los elementos tienen un font size igual al padre, em = font-size-padre*/
+  width: 1em; 
+  height: 1em;
+  background-color: aquamarine;
 }
 </style>
