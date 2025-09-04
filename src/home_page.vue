@@ -89,6 +89,15 @@ export default
     </div>
   </section>
 
+  <h2>Skills</h2>
+    <div  id="skills-container">
+      <p class="item1">Critical thinking</p>
+      <p class="item2">Problem solving</p>
+      <p class="item3">Item3</p>
+      <p class="item4">Item4</p>
+      <p class="item5">Item5</p>
+    </div>
+
 
 
 </template>
@@ -139,7 +148,7 @@ h1, h2{
 }
 
 
-section, p, h1, figure
+section, h1, figure
 {
   width:50vw; /*50 % del ancho del lienzo */
   margin:auto;
@@ -233,4 +242,44 @@ y para móviles en columnas*/
   height: 1em;
   background-color: aquamarine;
 }
+
+#skills-container
+{
+  display:grid;
+  grid-template-columns: 20% 1fr 2fr min-content;
+  grid-template-rows: [top-first-row] max-content 1fr; /*bode superior renombrado  */
+  grid-template-areas: "cell1 cell2 cell3 cell4"
+  "row2 row2 row2 row2";
+  row-gap: 20px;
+  column-gap: 20px;
+  justify-items:center;
+  align-items: baseline;
+  place-content: center; /*Se ajusta la malla en el centro del contenedor */
+  grid-auto-columns: 50px;
+  grid-auto-rows: 50px; /*Ancho de renglones para elementos que exceden los definidos en el template */
+  grid-auto-flow: row;  /* Posicionamiento automático de los elementos, rellenando renglones */
+  background-color:blueviolet;
+  color: aliceblue;
+}
+
+.item5
+{
+  /*Se acomoda el item en la malla, según las lineas delimitadoras que abarca */
+  grid-area: row2;  /*Se expande de acuerdo a las áreas definidas en el template del grid*/
+  background-color: darkgoldenrod;
+}
+
+
+/*Se coloca de forma explícita el item en la malla*/
+.item3
+{
+  grid-column: 1/2;
+  grid-row: 1/2;
+  align-self:first baseline;
+  justify-self: first baseline;
+}
+/*El resto de items se acomodan de forma automátrica en la malla, a lo largo de los renglones*/
+
+
+
 </style>
